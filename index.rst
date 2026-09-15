@@ -14,3 +14,35 @@ Refactoring the Rubin Observatory Control System Interface
    We will discuss the main reasons behind the proposed changes, their benefits and potential drawbacks.
    We will also go over a few challenging use-cases.
 
+.. NOTE: With the exception of the abstract, do not add any content to this file.
+   All content should be included in separate files, separated by sections.
+
+Introduction
+============
+
+.. include:: introduction.rst
+
+Performance
+===========
+
+.. include:: performance.rst
+
+From xml to avro
+================
+
+.. include:: xml-to-avro.rst
+
+Use-cases
+=========
+
+.. include:: use-cases.rst
+
+Timeline
+========
+
+.. include:: timeline.rst
+
+Conclusions
+===========
+
+.. include:: conclusions.rst
