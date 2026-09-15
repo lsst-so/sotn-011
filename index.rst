@@ -14,7 +14,3 @@ Refactoring the Rubin Observatory Control System Interface
    We will discuss the main reasons behind the proposed changes, their benefits and potential drawbacks.
    We will also go over a few challenging use-cases.
 
-Add content here
-================
-
-See the `Documenteer documentation <https://documenteer.lsst.io/technotes/index.html>`_ for tips on how to write and configure your new technote.
