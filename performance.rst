@@ -1,0 +1,4 @@
+
+.. note::
+
+  Add performance benchmarks.
