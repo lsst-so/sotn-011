@@ -21,3 +21,34 @@ orcid = "https://orcid.org/0000-0002-0138-1365"
 name = "NSF-DOE Vera C. Rubin Observatory / NSF NOIRLab"
 internal_id = "RubinObs"
 address = "Tucson"
+[[technote.authors]]
+name = {given = "Michael A.", family = "Reuter"}
+internal_id = "reuterma"
+orcid = "https://orcid.org/0000-0003-3881-8310"
+[[technote.authors.affiliations]]
+name = "NSF-DOE Vera C. Rubin Observatory / NSF NOIRLab"
+internal_id = "RubinObs"
+ror = "https://ror.org/048g3cy84"
+[[technote.authors]]
+name = {given = "Wouter", family = "van Reeven"}
+internal_id = "vanreevenw"
+orcid = "https://orcid.org/0000-0002-1431-9245"
+[[technote.authors.affiliations]]
+name = "NSF-DOE Vera C. Rubin Observatory / NSF NOIRLab"
+internal_id = "RubinObsC"
+ror = "https://ror.org/048g3cy84"
+[[technote.authors]]
+name = {given = "Eric", family = "Coughlin"}
+internal_id = "coughlinet"
+orcid = "https://orcid.org/0009-0007-4565-4082"
+[[technote.authors.affiliations]]
+name = "NSF-DOE Vera C. Rubin Observatory / NSF NOIRLab"
+internal_id = "RubinObs"
+ror = "https://ror.org/048g3cy84"
+[[technote.authors]]
+name = {given = "Amanda", family = "Ibsen"}
+internal_id = "ibsena"
+[[technote.authors.affiliations]]
+name = "NSF-DOE Vera C. Rubin Observatory / NSF NOIRLab"
+internal_id = "RubinObsC"
+ror = "https://ror.org/048g3cy84"
