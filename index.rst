@@ -46,3 +46,8 @@ Conclusions
 ===========
 
 .. include:: conclusions.rst
+
+References
+==========
+
+.. bibliography::
