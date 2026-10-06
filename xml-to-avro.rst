@@ -41,8 +41,12 @@ Or the Python CSC will need to dynamically create and import these enums from th
 Common Topic Fields
 -------------------
 
-Just a reminder that currently we add a few additional fields to the topics when we translate them from xml to avro.
-I think we want to continue doing this as having us duplicate those in the interface is probably a bad idea, which means we will still have to do a translation stage from avro -> avro.
+Currently, during the XML-to-Avro translation stage, a set of common header and system metadata fields are automatically injected into each topic schema.
+These fields include system tracking parameters such as ``salIndex`` (for indexed components), publication/reception timestamps (``private_sndStamp``, ``private_rcvStamp``, ``private_efdStamp``, ``private_kafkaStamp``), sequence numbers (``private_seqNum``), interface revision hashes (``private_revCode``), and publisher origin details (``private_identity``, ``private_origin``).
+
+We propose continuing this practice rather than requiring developers to duplicate these standard fields manually in every individual topic definition.
+Maintaining centralized injection ensures consistency across interfaces and reduces boilerplate code.
+Consequently, even with topic interfaces defined natively in Avro, a lightweight schema processing pipeline (an Avro-to-Avro transformation step) will remain necessary to inject these common fields prior to publishing schemas to the schema registry.
 
 Generics and SAL Subsystems
 ---------------------------
