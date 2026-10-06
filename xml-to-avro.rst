@@ -6,9 +6,27 @@
 Initial Translation
 -------------------
 
-Initial translation of topics from xml into avro.
-This is probably where we want to enforce the refactoring as well which means, whenever a component interface is translated into avro we will drop the use of arrays.
-Will be ok for some CSCs and painful for others.
+The first step in this process is providing a mechanism to translate the original XML topics into Avro.
+At this stage, we will also enforce topic refactoring by replacing arrays with single-element fields.
+
+Packed data can be directly converted from arrays to single elements by including an additional ``timestamp`` field if one is not already present.
+
+Simultaneous measurements, on the other hand, require a slightly more complex process.
+Some of these topics represent measurements from different sensors (categorized by location, ID, or other properties), while others correspond to actuators, motors, or similar hardware.
+
+Another issue to consider involves commands that accept arrays to provide setpoints for multiple actuators simultaneously.
+For example, the M1M3 ``applyActiveOpticForces`` command allows setting the mirror's entire force profile in a single operation (with an equivalent case existing for M2).
+One alternative is splitting these actions into separate "setting" and "apply" phases.
+During the setting phase, target values are updated but not applied; verification and physical execution then take place during the apply phase.
+However, this approach turns a straightforward, single-phase set/verify/apply operation into a multi-stage process that is more error-prone.
+This might be an indication that we should still permit arrays in cases where they make clear practical sense, focusing instead on sanitizing component interfaces to reduce our overall reliance on arrays.
+For more information see :ref:`m1m3-case-study` and :ref:`m2-case-study` furthermore.
+
+To support the initial translation phase, we can provide a Python script in ``ts_xml``.
+For topics without arrays, the script can automatically generate the equivalent Avro schema directly from the XML.
+For packed data, the script can likely emit the correct schema with minimal input.
+Simultaneous measurements present a more complex scenario: while the script can generate the correct Avro schema for most cases with minimal input (e.g., specifying the name of the index field), some topics may require manual intervention or a complete rewrite by a domain expert.
+We should also consider using an AI agent to assist with the most complex cases, as LLMs can perform the translation effectively when guided by user input.
 
 Enumerations
 ------------
