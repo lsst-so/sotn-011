@@ -47,19 +47,19 @@ I think we want to continue doing this as having us duplicate those in the inter
 Generics and SAL Subsystems
 ---------------------------
 
-In addition to the xml with the CSCs interfaces we have a pair of xml files that specify the “Generics” and the “SALSubsystems” interfaces.
-The Generics can certainly be converted into avro but SALSubsystems.xml is not a topic interface but metadata for each component.
-Will we pick a new format for this file or keep xml? Json is a good option (very transportable) but hard on users.
-YAML is another option, more readable but less transportable.
+In addition to the XML files defining the individual CSC interfaces, two core schema files exist: ``Generics.xml`` and ``SALSubsystems.xml``.
 
-(A quote from a podcast: XML is better than YAML, because there are situations where XML is appropriate, but there’s no situation where YAML is appropriate.
+While ``Generics.xml`` defines reusable topic interfaces and can be converted directly into Avro schemas, ``SALSubsystems.xml`` serves a different purpose: it contains metadata describing each component rather than topic interface definitions.
+Consequently, converting ``SALSubsystems.xml`` to Avro is not appropriate, requiring a decision on whether to retain XML or transition to a alternative serialization format.
 
-MR Counter argument: See Helm chart configuration which I would hate to do in XML.)
+While YAML is often considered for human readability, it presents interoperability challenges and requires external parsing dependencies.
+JSON offers a better balance for this metadata:
 
-MR: Going to throw my 2 cents at this and say JSON would probably be more appropriate.
-Bridges the gap between human and machine readable and does not require third party packages in python to parse.
-I don’t think JSON is that hard on users given all the IDE support for the format.
-Yes, it does take a little bit to get used to. 
+* **Standard Library Support:** Native JSON parsing is built into Python's standard library (``json``), eliminating third-party package dependencies.
+* **Interoperability:** JSON provides seamless machine readability and cross-language support, bridging human readability with robust automated tooling.
+* **Modern Tooling:** Modern IDEs offer schema validation, formatting, and syntax highlighting, mitigating usability concerns for manual editing.
+
+Therefore, we propose retaining Avro for all topic definitions (including generics) while converting component metadata in ``SALSubsystems.xml`` to JSON.
 
 Additional Support on SAL/SalObj
 --------------------------------
