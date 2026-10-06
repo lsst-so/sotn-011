@@ -9,7 +9,16 @@
 MTMount Telemetry
 -----------------
 
-Te-Wei just reminded me of the MTMount telemetry; which is translated into xml from an ini file used by the TMA controller.
+The source of truth for the MTMount CSC telemetry interface is an ``.ini`` file used by the TMA LabVIEW Controller to define system telemetry.
+Currently, this file is translated to XML via a script in the ts_mtmount package.
+We can leverage this same script to translate the ``.ini`` file directly into Avro schemas instead.
+
+However, one caveat is that some telemetry in this interface is currently defined using arrays.
+To handle these cases, the generated Avro topics will use single-element scalar fields instead of arrays, accompanied by an explicit index field.
+The index field name could be configurable per topic, defaulting to something like ``sensorId``.
+
+It is worth noting that while :cite:`SQR-113` classifies MTMount as having "packed data", this is actually a case of multi-sensor measurements.
+Therefore, relying on timestamps alone to differentiate measurements would be incorrect.
 
 .. _ess-case-study:
 
