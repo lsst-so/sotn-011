@@ -4,25 +4,35 @@
    Use-cases studies goes here.
 
 
+.. _mtmount-telemetry:
+
 MTMount Telemetry
 -----------------
 
 Te-Wei just reminded me of the MTMount telemetry; which is translated into xml from an ini file used by the TMA controller.
+
+.. _ess-case-study:
 
 ESS Case Study
 --------------
 
 Use the ESS as a case study.
 
+.. _m1m3-case-study:
+
 M1M3 Case Study
 ---------------
 
 We need to look at the M1M3 and M2 interfaces as well. These (along with MTMount) are our system heavy hitters
 
+.. _m2-case-study:
+
 M2 Case Study
 --------------
 
 We need to look at the M1M3 and M2 interfaces as well. These (along with MTMount) are our system heavy hitters
+
+.. _atmcs-case-study:
 
 ATMCS Case Study
 ----------------
@@ -34,11 +44,15 @@ That means if we do not use the array, we need to make sure we can publish the t
 WvR: The telemetry is time packed because LabVIEW struggles (to keep it friendly) with publishing at 100 Hz.
 The CSC probably needs to unpack the telemetry received from the cRIO and publish that.
 
+.. _hvac-and-mtdome:
+
 HVAC and MTDome
 ---------------
 
 HVAC and MTDome have Python code that (in case of MTDome partially) creates the XML so those will need to be rewritten to create avro instead.
 
+
+.. _renaming-hvac-topic-attributes:
 
 Renaming HVAC topic attributes
 ------------------------------
